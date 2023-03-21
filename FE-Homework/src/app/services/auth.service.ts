@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User, Token } from 'src/modules/auth';
-import { Observable, map } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -21,15 +21,19 @@ export class AuthService {
   }
 
   login(objectUser: { email: string; password: string }): Observable<Token> {
-    return this.httpClient.post<Token>(
-      `${environment.host}/auth/login`,
-      objectUser
-    );
+    return this.httpClient
+      .post<Token>(`${environment.host}/auth/login`, objectUser)
+      .pipe(
+        tap<Token>((token: Token) => {
+          localStorage.setItem('accessToken', token.access_token);
+          localStorage.setItem('refreshToken', token.refresh_token);
+        })
+      );
   }
 
   profile(): Observable<{ name: string; role: string; avatar: string }> {
     return this.httpClient.get<{ name: string; role: string; avatar: string }>(
-      `${environment.host}/auth/profile`,
+      `${environment.host}/auth/profile`
     );
   }
 }

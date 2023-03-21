@@ -42,11 +42,9 @@ export class LoginComponent implements OnInit {
       alert('errore');
     } else {
       this.AuthService.login(this.loginForm.value).subscribe((result) => {
-        const { access_token, refresh_token } = result;
-        localStorage.setItem('accessToken', access_token);
-        localStorage.setItem('refreshToken', refresh_token);
+        console.log(result)
         alert('ok');
-        // this._router.navigate(['/'])
+        this._router.navigate(['/profile'])
       });
     }
   }
