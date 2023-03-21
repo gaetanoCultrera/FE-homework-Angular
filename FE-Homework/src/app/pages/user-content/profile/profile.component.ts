@@ -9,7 +9,7 @@ import { User } from 'src/modules/auth';
 })
 export class ProfileComponent implements OnInit {
 
-  userProfile!: User;
+  userProfile!: {name:string,role:string,avatar:string};
 
   constructor(private AuthService: AuthService){}
 
