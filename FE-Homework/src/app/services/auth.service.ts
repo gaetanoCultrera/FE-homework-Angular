@@ -36,4 +36,8 @@ export class AuthService {
       `${environment.host}/auth/profile`
     );
   }
+
+  isLogged():Boolean {
+    return Boolean(localStorage.getItem('accessToken'));
+  }
 }

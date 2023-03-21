@@ -1,8 +1,31 @@
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-  email <input name="email" formControlName="email">
-  password <input name="password" type="password" formControlName="password">
-  name <input name="name" formControlName="name">
-  role <input name="role" formControlName="role">
-  avatar <input name="avatar" formControlName="avatar">
-  <button type="submit">invia</button>
-</form>
+<div class="container">
+  <h1 class="text-danger">SignUp</h1>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-control" formControlName="email" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control" formControlName="password" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input type="text" class="form-control" formControlName="name" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Role</label>
+      <input type="text" class="form-control" formControlName="role" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Avatar</label>
+      <input type="text" class="form-control" formControlName="avatar" />
+    </div>
+    <button type="submit" class="btn btn-primary">SignUp</button>
+  </form>
+  <hr />
+  <h3>
+    Hai già un account?
+    <a routerLinkActive="active" routerLink="/login"> clicca qui.</a>
+  </h3>
+</div>
