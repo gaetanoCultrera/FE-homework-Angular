@@ -22,8 +22,7 @@ export class ContentMePageComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
     const dataForm: ContactForm = {
@@ -35,6 +34,6 @@ export class ContentMePageComponent implements OnInit {
       checkbox: this.contactForm.get('checkbox')?.value,
     };
     console.log(JSON.stringify(dataForm));
-    this.contactForm.reset()
+    this.contactForm.reset();
   }
 }

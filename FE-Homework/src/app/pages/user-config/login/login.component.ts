@@ -29,8 +29,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   //if form isn't valid, output is an error
   onSubmit() {

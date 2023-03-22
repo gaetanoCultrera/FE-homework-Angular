@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -14,16 +10,16 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
-  dataRoles:string[]=[]
-  avatarDefault:string=""
+  dataRoles: string[] = [];
+  avatarDefault: string = '';
 
   constructor(
     private AuthService: AuthService,
     private formBuilder: FormBuilder,
     private _router: Router
   ) {
-    this.dataRoles=["admin","customer"]
-    this.avatarDefault="https://api.lorem.space/image/face?w=640&h=480&r=867"
+    this.dataRoles = ['admin', 'customer'];
+    this.avatarDefault = 'https://api.lorem.space/image/face?w=640&h=480&r=867';
     this.registerForm = formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: [
@@ -37,14 +33,13 @@ export class RegisterComponent implements OnInit {
       ],
       name: ['', [Validators.required]],
       role: ['', [Validators.required]],
-      avatar: ['https://api.lorem.space/image/face?w=640&h=480&r=867', [Validators.required]],
+      avatar: [
+        'https://api.lorem.space/image/face?w=640&h=480&r=867',
+        [Validators.required],
+      ],
     });
-
-
   }
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   //if form isn't valid, output is an error, in html template has been added validity management
   onSubmit() {
@@ -52,9 +47,9 @@ export class RegisterComponent implements OnInit {
       alert('error');
     } else {
       this.AuthService.register(this.registerForm.value).subscribe((result) => {
-        console.log(result)
+        console.log(result);
         alert('registration completed!');
-         this._router.navigate(['/login'])
+        this._router.navigate(['/login']);
       });
     }
   }

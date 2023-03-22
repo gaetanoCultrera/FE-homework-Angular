@@ -8,17 +8,13 @@ import { ResponseContent } from 'src/modules/content';
   styleUrls: ['./content-feed-page.component.scss'],
 })
 export class ContentFeedPageComponent implements OnInit {
-
   dataProduct: ResponseContent[] = [];
 
-  constructor(private contentService:ContentService) {}
-
+  constructor(private contentService: ContentService) {}
 
   ngOnInit(): void {
-    this.contentService.getProducts().subscribe((result)=>{
-      this.dataProduct=[...result]
-    })
+    this.contentService.getProducts().subscribe((result) => {
+      this.dataProduct = [...result];
+    });
   }
-
-
 }

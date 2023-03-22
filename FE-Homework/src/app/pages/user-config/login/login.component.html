@@ -1,6 +1,10 @@
 <div class="container">
   <div class="card">
-    <img src="https://static.vecteezy.com/system/resources/previews/003/805/189/original/paper-art-online-shopping-on-smart-phone-buy-sell-on-mobile-technology-marketing-illustration-for-cover-page-design-on-website-free-vector.jpg" class="card-img-top" alt="cover">
+    <img
+      src="https://static.vecteezy.com/system/resources/previews/003/805/189/original/paper-art-online-shopping-on-smart-phone-buy-sell-on-mobile-technology-marketing-illustration-for-cover-page-design-on-website-free-vector.jpg"
+      class="card-img-top"
+      alt="cover"
+    />
     <div class="card-body">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="mb-3">
@@ -15,8 +19,7 @@
           <span
             class="text-danger"
             *ngIf="
-              !loginForm.get('email')?.valid &&
-              loginForm.get('email')?.touched
+              !loginForm.get('email')?.valid && loginForm.get('email')?.touched
             "
             >Error Pattern</span
           >
@@ -38,7 +41,11 @@
             >Error Pattern</span
           >
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!loginForm.valid"
+        >
           SignIn
         </button>
       </form>
