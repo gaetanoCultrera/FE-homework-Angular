@@ -1,16 +1,47 @@
 <div class="container">
   <h1 class="text-danger">SignIn</h1>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email</label>
-          <input type="email" class="form-control" formControlName="email" required email>
-      </div>
-      <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" class="form-control" formControlName="password" required>
-      </div>
-      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Send</button>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+        required
+        email
+      />
+      <span
+        class="text-danger"
+        *ngIf="
+          !loginForm.get('email')?.valid &&
+          loginForm.get('email')?.touched
+        "
+        >Error Pattern</span
+      >
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        formControlName="password"
+        required
+      />
+      <span
+        class="text-danger"
+        *ngIf="
+          !loginForm.get('password')?.valid &&
+          loginForm.get('password')?.touched
+        "
+        >Error Pattern</span
+      >
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">
+      SignIn
+    </button>
   </form>
-  <hr>
-  <h3>Se non hai un account <a routerLinkActive="active" routerLink="/register"> clicca qui.</a></h3>
+  <h3>
+    Don't have an account?
+    <a routerLinkActive="active" routerLink="/register"> Click here</a>
+  </h3>
 </div>

@@ -12,3 +12,12 @@ export interface Category {
   name: string
   image: string
 }
+
+export interface ContactForm {
+  name: string
+  surname: string
+  email: string
+  subject: string
+  textArea: string
+  checkbox: boolean
+}

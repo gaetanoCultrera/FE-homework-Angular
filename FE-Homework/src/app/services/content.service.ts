@@ -13,6 +13,6 @@ export class ContentService {
 
 
   getProducts():Observable<ResponseContent[]>{
-    return this.httpClient.get<ResponseContent[]>(`${environment.host}/products?offset=0&limit=20`)
+    return this.httpClient.get<ResponseContent[]>(`${environment.host}/products?offset=0&limit=21`)
   }
 }

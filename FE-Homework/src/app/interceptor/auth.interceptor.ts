@@ -29,14 +29,14 @@ export class AuthInterceptor implements HttpInterceptor {
       });
     }
     return next.handle(httpRequest).pipe(
-      catchError((err) => {
+      catchError((err:HttpErrorResponse) => {
         if (err instanceof HttpErrorResponse) {
           if (err.status === 401) {
             alert('Error, try again');
             this._router.navigate(['/login']);
           }
         }
-        return throwError(err);
+        return throwError(err.message);
       })
     );
   }
