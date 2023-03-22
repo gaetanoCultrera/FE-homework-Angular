@@ -6,6 +6,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 First run `npm i` for a dependencies,then Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
+## Description Project
+Project with Angular 15.0.4 and Bootstrap 5, login management through a Bearer token saved in local storage.
+
+## Missing Requirements
+
+loading component for transition management, wishlist and non-optimized graphics,Angular properties are used for data flow towards components for managing the loading process.
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
