@@ -5,30 +5,34 @@ import {
   HttpEvent,
   HttpInterceptor,
   HttpErrorResponse,
+  HttpHeaders,
 } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+  baseHeader: HttpHeaders = new HttpHeaders({
+    'Content-Type': 'application/json;',
+  });
   constructor(private _router: Router) {}
 
   intercept(
-    request: HttpRequest<any>,
+    httpRequest: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const token = localStorage.getItem('accessToken');
     if (token) {
       // If we have a token, we set it to the header
-      request = request.clone({
-        setHeaders: { Authorization: 'Bearer ' + token },
+      httpRequest = httpRequest.clone({
+        headers: this.baseHeader.set('Authorization', `Bearer ${token}`),
       });
     }
-    return next.handle(request).pipe(
+    return next.handle(httpRequest).pipe(
       catchError((err) => {
         if (err instanceof HttpErrorResponse) {
           if (err.status === 401) {
-            alert("Errore")
+            alert('Error, try again');
             this._router.navigate(['/login']);
           }
         }

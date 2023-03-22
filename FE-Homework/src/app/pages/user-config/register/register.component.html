@@ -3,25 +3,27 @@
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <label class="form-label">Email</label>
-      <input type="email" class="form-control" formControlName="email" />
+      <input  type="email" class="form-control" formControlName="email" required email />
     </div>
     <div class="mb-3">
       <label class="form-label">Password</label>
-      <input type="password" class="form-control" formControlName="password" />
+      <input type="password" class="form-control" formControlName="password" required />
     </div>
     <div class="mb-3">
       <label class="form-label">Name</label>
-      <input type="text" class="form-control" formControlName="name" />
+      <input type="text" class="form-control" formControlName="name" required />
     </div>
     <div class="mb-3">
       <label class="form-label">Role</label>
-      <input type="text" class="form-control" formControlName="role" />
+      <select class="form-select" aria-label="Default select example" formControlName="role">
+        <option selected *ngFor="let role of dataRoles">{{role}}</option>
+      </select>
     </div>
     <div class="mb-3">
       <label class="form-label">Avatar</label>
-      <input type="text" class="form-control" formControlName="avatar" />
+      <input type="text" class="form-control" formControlName="avatar" required />
     </div>
-    <button type="submit" class="btn btn-primary">SignUp</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">SignUp</button>
   </form>
   <hr />
   <h3>

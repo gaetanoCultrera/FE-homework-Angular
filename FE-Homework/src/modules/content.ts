@@ -4,8 +4,6 @@ export interface ResponseContent {
   price: number
   description: string
   images: string[]
-  creationAt: string
-  updatedAt: string
   category: Category
 }
 

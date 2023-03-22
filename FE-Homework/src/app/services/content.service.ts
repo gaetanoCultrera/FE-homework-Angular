@@ -12,7 +12,7 @@ export class ContentService {
   constructor(private httpClient: HttpClient) { }
 
 
-  getProducts():Observable<ResponseContent>{
-    return this.httpClient.get<ResponseContent>(`${environment.host}/products`)
+  getProducts():Observable<ResponseContent[]>{
+    return this.httpClient.get<ResponseContent[]>(`${environment.host}/products?offset=0&limit=20`)
   }
 }

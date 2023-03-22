@@ -9,14 +9,14 @@ import { ResponseContent } from 'src/modules/content';
 })
 export class ContentFeedPageComponent implements OnInit {
 
-  userData: ResponseContent[] = [];
+  dataProduct: ResponseContent[] = [];
 
   constructor(private contentService:ContentService) {}
 
 
   ngOnInit(): void {
     this.contentService.getProducts().subscribe((result)=>{
-      // this.userData=result
+      this.dataProduct=[...result]
     })
   }
 

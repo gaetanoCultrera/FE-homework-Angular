@@ -15,6 +15,7 @@ import { NavbarComponent } from './pages/user-content/navbar/navbar.component';
 import { ContentFeedPageComponent } from './pages/user-content/content-feed-page/content-feed-page.component';
 import { ContentMePageComponent } from './pages/user-content/content-me-page/content-me-page.component';
 import { WishlistPageComponent } from './pages/user-content/wishlist-page/wishlist-page.component';
+import { CardsComponent } from './pages/user-content/cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { WishlistPageComponent } from './pages/user-content/wishlist-page/wishli
     ContentFeedPageComponent,
     ContentMePageComponent,
     WishlistPageComponent,
+    CardsComponent,
   ],
   imports: [
     BrowserModule,

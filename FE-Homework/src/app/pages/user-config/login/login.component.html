@@ -3,13 +3,13 @@
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Email</label>
-          <input type="email" class="form-control" formControlName="email">
+          <input type="email" class="form-control" formControlName="email" required email>
       </div>
       <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" class="form-control" formControlName="password">
+          <input type="password" class="form-control" formControlName="password" required>
       </div>
-      <button type="submit" class="btn btn-primary">Send</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Send</button>
   </form>
   <hr>
   <h3>Se non hai un account <a routerLinkActive="active" routerLink="/register"> clicca qui.</a></h3>

@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 @Component({
@@ -39,12 +35,11 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (!this.loginForm.valid) {
-      alert('errore');
+      alert('error! try again');
     } else {
       this.AuthService.login(this.loginForm.value).subscribe((result) => {
-        console.log(result)
-        alert('ok');
-        this._router.navigate(['feed'])
+        alert('Connection Successful!');
+        this._router.navigate(['feed']);
       });
     }
   }
