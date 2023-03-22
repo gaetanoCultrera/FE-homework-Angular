@@ -1,15 +1,26 @@
 <app-navbar></app-navbar>
-<div
-  *ngFor="let item of favoriteProducts"
-  class="col-lg-4 col-sm-12 d-flex justify-content-center pt-2"
->
-  <div class="card" style="width: 18rem">
-    <img class="card-img-top" src="{{ item.images[0] }}" alt="Card image cap" />
-    <div class="card-body">
-      <h5 class="card-title">{{ item.title }}</h5>
-      <p class="card-text">Price: {{ item.price }}</p>
-      <p class="card-text"></p>
-      <p class="card-text">Category: {{ item.category.name }}</p>
+<div class="container">
+  <div class="row">
+    <h1 class="text-center" *ngIf="favoriteProducts.length === 0">
+      Empty wishlist
+    </h1>
+    <div
+      *ngFor="let item of favoriteProducts"
+      class="col-lg-4 col-sm-12 d-flex justify-content-center pt-2"
+    >
+      <div class="card" style="width: 18rem">
+        <img
+          class="card-img-top"
+          src="{{ item.images[0] }}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <p class="card-text">Price: {{ item.price }}</p>
+          <p class="card-text">Category: {{ item.category.name }}</p>
+          <button class="btn btn-primary" (click)="clearFavorite()">Clear</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

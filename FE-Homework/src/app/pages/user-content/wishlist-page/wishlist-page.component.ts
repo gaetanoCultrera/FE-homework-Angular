@@ -13,20 +13,25 @@ export class WishlistPageComponent implements OnInit {
   id:string | null="";
   favoriteProducts:ResponseContent[]=[]
 
-  constructor(private route: ActivatedRoute,private contentService:ContentService){}
+  constructor(private _router: Router,private contentService:ContentService){}
 
-  async ngOnInit(): Promise<void> {
-    this.getProductById()
+  async ngOnInit(){
+    this.setFavorite()
   }
 
-  async getProductById(){
-    this.id=this.route.snapshot.paramMap.get('id')
-    this.contentService.getProductsById(this.id).subscribe((result)=>{
-      this.favoriteProducts.push(result)
-    })
-    console.log(this.favoriteProducts)
-    return this.favoriteProducts
-
+  setFavorite():ResponseContent[]{
+    return this.favoriteProducts=this.contentService.getFavorite()
   }
+
+  // removeFavorite(id:string):void{
+  //   this.contentService.removeFavorite(id)
+  // }
+
+  clearFavorite(){
+    this.contentService.clearFavorite()
+    this._router.navigate(['feed'])
+  }
+
+
 
 }

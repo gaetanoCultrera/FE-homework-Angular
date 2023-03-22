@@ -29,7 +29,7 @@ const routes: Routes = [
         component: ProfileComponent,
       },
       {
-        path: 'wishlist/:id',
+        path: 'wishlist',
         component: WishlistPageComponent,
       },
     ],

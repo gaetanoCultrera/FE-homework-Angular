@@ -11,12 +11,33 @@ export class ContentService {
 
   constructor(private httpClient: HttpClient) { }
 
+  favoriteList:ResponseContent[]=[]
+
 
   getProducts():Observable<ResponseContent[]>{
     return this.httpClient.get<ResponseContent[]>(`${environment.host}/products?offset=0&limit=24`)
   }
 
-  getProductsById(id:string | null):Observable<ResponseContent>{
-    return this.httpClient.get<ResponseContent>(`${environment.host}/products/${id}`)
+  // getProductsById(id:string | null):Observable<ResponseContent>{
+  //   return this.httpClient.get<ResponseContent>(`${environment.host}/products/${id}`)
+  // }
+
+  AddFavorite(itemList:ResponseContent){
+    this.favoriteList.push(itemList)
+    console.log(this.favoriteList)
+  }
+
+  getFavorite() {
+    return this.favoriteList;
+  }
+
+  // removeFavorite(id:string){
+  //   let index=this.favoriteList.findIndex((item)=> item.id === id)
+  //   this.favoriteList.splice(index,1)
+  // }
+
+  clearFavorite() {
+    this.favoriteList = [];
+    return this.favoriteList;
   }
 }
