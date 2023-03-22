@@ -11,7 +11,7 @@ Project with Angular 15.0.4 and Bootstrap 5, login management through a Bearer t
 
 ## Missing Requirements
 
-loading component for transition management, wishlist and non-optimized graphics,Angular properties are used for data flow towards components for managing the loading process.
+loading component for transition management, wishlist and non-optimized graphics,Angular properties are used for data flow towards components for managing the loading process,For the wishlist, I wanted it to be managed with the URL provided by the API, which I obtained in the component with ActivatedRouteSnapshot, using a solution with passing the item as a parameter.
 
 ## Code scaffolding
 
