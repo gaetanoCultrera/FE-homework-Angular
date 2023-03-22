@@ -26,9 +26,7 @@ export class ProfileComponent implements OnInit {
   }
 
   onLogout():void {
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('refreshToken');
-    localStorage.clear();
+    this.AuthService.logout()
     this._router.navigate(['login']);
   }
 

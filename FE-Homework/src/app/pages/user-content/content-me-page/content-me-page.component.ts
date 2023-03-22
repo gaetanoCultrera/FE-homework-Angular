@@ -36,5 +36,6 @@ export class ContentMePageComponent implements OnInit {
       checkbox: this.contactForm.get('checkbox')?.value,
     };
     console.log(JSON.stringify(dataForm));
+    this.contactForm.reset()
   }
 }
