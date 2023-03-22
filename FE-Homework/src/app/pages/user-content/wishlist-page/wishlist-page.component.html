@@ -1,1 +1,15 @@
-<app-content-feed-page></app-content-feed-page>
+<app-navbar></app-navbar>
+<div
+  *ngFor="let item of favoriteProducts"
+  class="col-lg-4 col-sm-12 d-flex justify-content-center pt-2"
+>
+  <div class="card" style="width: 18rem">
+    <img class="card-img-top" src="{{ item.images[0] }}" alt="Card image cap" />
+    <div class="card-body">
+      <h5 class="card-title">{{ item.title }}</h5>
+      <p class="card-text">Price: {{ item.price }}</p>
+      <p class="card-text"></p>
+      <p class="card-text">Category: {{ item.category.name }}</p>
+    </div>
+  </div>
+</div>

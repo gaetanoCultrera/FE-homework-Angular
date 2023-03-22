@@ -14,15 +14,17 @@
       />
       <div class="card-body">
         <h5 class="card-title">{{ item.title }}</h5>
-        <p class="card-text"></p>
         <p>Price: {{ item.price }}</p>
-        <p class="card-text"></p>
         <p>Category: {{ item.category.name }}</p>
+        <button class="btn btn-primary" routerLink="/wishlist/{{ item.id }}">
+          Favorite
+        </button>
       </div>
     </div>
   </div>
   <div class="d-flex justify-content-center align-content-center mt-5">
-    <pagination-controls style="color:white"
+    <pagination-controls
+      style="color: white"
       (pageChange)="defaultPage = $event"
     ></pagination-controls>
   </div>

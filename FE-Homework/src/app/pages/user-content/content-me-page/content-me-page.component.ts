@@ -23,7 +23,6 @@ export class ContentMePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('sono qua');
   }
 
   onSubmit() {
