@@ -20,6 +20,7 @@ export class AuthService {
     return this.httpClient.post<User>(`${environment.host}/users`, credentials);
   }
 
+  //login and setting of access token
   login(objectUser: { email: string; password: string }): Observable<Token> {
     return this.httpClient
       .post<Token>(`${environment.host}/auth/login`, objectUser)
@@ -31,12 +32,14 @@ export class AuthService {
       );
   }
 
+  //get data of profile user
   profile(): Observable<{ name: string; role: string; avatar: string }> {
     return this.httpClient.get<{ name: string; role: string; avatar: string }>(
       `${environment.host}/auth/profile`
     );
   }
 
+  //logout
   logout(): void {
     try {
       localStorage.removeItem('accessToken');
@@ -47,6 +50,7 @@ export class AuthService {
     }
   }
 
+  //function that will be called in the guard to check the access token, boolean output
   isLogged(): Boolean {
     return Boolean(localStorage.getItem('accessToken'));
   }

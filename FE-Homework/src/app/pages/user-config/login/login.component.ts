@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //if form isn't valid, output is an error
   onSubmit() {
     if (!this.loginForm.valid) {
       alert('error! try again');

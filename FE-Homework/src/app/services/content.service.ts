@@ -14,6 +14,7 @@ export class ContentService {
   favoriteList:ResponseContent[]=[]
 
 
+  //all products by httpClient, output is an observable
   getProducts():Observable<ResponseContent[]>{
     return this.httpClient.get<ResponseContent[]>(`${environment.host}/products?offset=0&limit=24`)
   }

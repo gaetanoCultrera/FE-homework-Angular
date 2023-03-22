@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 export class AuthGuard implements CanActivate {
 
   constructor(private AuthService: AuthService,private router: Router){}
+
+  //used for route management if the token is present, I can access the private area
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {

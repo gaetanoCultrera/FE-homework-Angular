@@ -46,9 +46,10 @@ export class RegisterComponent implements OnInit {
 
   }
 
+  //if form isn't valid, output is an error, in html template has been added validity management
   onSubmit() {
     if (!this.registerForm.valid) {
-      alert('errore');
+      alert('error');
     } else {
       this.AuthService.register(this.registerForm.value).subscribe((result) => {
         console.log(result)

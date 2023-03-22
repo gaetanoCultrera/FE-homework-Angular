@@ -17,6 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
   });
   constructor(private _router: Router) {}
 
+  //header management, we set the bearer token to access the private area
   intercept(
     httpRequest: HttpRequest<any>,
     next: HttpHandler
