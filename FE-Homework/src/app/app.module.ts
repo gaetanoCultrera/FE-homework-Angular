@@ -22,6 +22,7 @@ import { ContentMePageComponent } from './pages/user-content/content-me-page/con
 import { WishlistPageComponent } from './pages/user-content/wishlist-page/wishlist-page.component';
 import { CardsComponent } from './pages/user-content/cards/cards.component';
 import { LoaderComponentComponent } from './pages/user-content/loader-component/loader-component.component';
+import { DarkModeToggleComponent } from './pages/user-content/dark-mode-toggle/dark-mode-toggle.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { LoaderComponentComponent } from './pages/user-content/loader-component/
     WishlistPageComponent,
     CardsComponent,
     LoaderComponentComponent,
+    DarkModeToggleComponent,
   ],
   imports: [
     BrowserModule,

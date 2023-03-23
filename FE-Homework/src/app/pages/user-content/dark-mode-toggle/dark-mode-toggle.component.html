@@ -1,0 +1,14 @@
+<div class="form-check form-check-group">
+  <div class="toggles">
+    <label style="color:black" >
+      Dark mode
+      <input
+        type="checkbox"
+        [checked]="darkMode$ | async"
+        (change)="onToggle()"
+        checked
+      />
+      <span class="lever"></span>
+    </label>
+  </div>
+</div>
