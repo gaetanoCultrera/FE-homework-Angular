@@ -67,10 +67,12 @@
           <label class="form-label">Role</label>
           <select
             class="form-select"
-            aria-label="Default select example"
             formControlName="role"
           >
-            <option selected *ngFor="let role of dataRoles">{{ role }}</option>
+            <option value="default" disabled>Select Role</option>
+            <option selected  *ngFor="let role of dataRoles" [value]="role">
+              {{ role }}
+            </option>
           </select>
           <span
             class="text-danger"

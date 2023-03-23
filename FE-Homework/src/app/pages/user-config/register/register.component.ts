@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private _router: Router
   ) {
-    this.dataRoles = ['admin', 'customer'];
+    this.dataRoles = ['admin','customer'];
     this.avatarDefault = 'https://api.lorem.space/image/face?w=640&h=480&r=867';
     this.registerForm = formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
         ],
       ],
       name: ['', [Validators.required]],
-      role: ['', [Validators.required]],
+      role: [null, [Validators.required]],
       avatar: [
         'https://api.lorem.space/image/face?w=640&h=480&r=867',
         [Validators.required],
