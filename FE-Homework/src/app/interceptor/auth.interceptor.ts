@@ -33,12 +33,9 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(httpRequest).pipe(
       catchError((err: HttpErrorResponse) => {
         if (err instanceof HttpErrorResponse) {
-          if (err.status === 401) {
+          if (err.status === 401 || err.status === 400) {
             this.toastr.error('error! try again');
             this._router.navigate(['/login']);
-          }
-          if(err.status === 400) {
-            this.toastr.error('format error');
           }
         }
         return throwError(err.message);
