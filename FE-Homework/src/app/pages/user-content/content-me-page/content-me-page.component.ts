@@ -24,6 +24,7 @@ export class ContentMePageComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //I create an object with the values ​​taken from the form and transform it into json
   onSubmit() {
     const dataForm: ContactForm = {
       name: this.contactForm.get('name')?.value,

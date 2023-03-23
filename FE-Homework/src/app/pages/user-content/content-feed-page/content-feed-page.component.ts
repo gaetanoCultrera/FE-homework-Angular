@@ -13,10 +13,10 @@ export class ContentFeedPageComponent implements OnInit {
   constructor(private contentService: ContentService) {}
 
   ngOnInit(): void {
-    this.getAllProduct()
+    this.getAllProduct();
   }
 
-  getAllProduct(){
+  getAllProduct() {
     this.contentService.getProducts().subscribe((result) => {
       this.dataProduct = [...result];
     });

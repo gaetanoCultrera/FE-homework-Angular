@@ -11,7 +11,11 @@ import { DarkModeService } from 'angular-dark-mode';
 export class ProfileComponent implements OnInit {
   userProfile!: { name: string; role: string; avatar: string };
 
-  constructor(private AuthService: AuthService, private _router: Router,private darkModeService: DarkModeService) {}
+  constructor(
+    private AuthService: AuthService,
+    private _router: Router,
+    private darkModeService: DarkModeService
+  ) {}
 
   ngOnInit(): void {
     this.getProfile();
@@ -19,13 +23,17 @@ export class ProfileComponent implements OnInit {
 
   getProfile() {
     this.AuthService.getProfileUser().subscribe((result) => {
-      this.userProfile = {...result};
+      this.userProfile = { ...result };
     });
   }
 
   onLogout(): void {
-    this.AuthService.logout();
-    this._router.navigate(['login']);
-    this.darkModeService.disable();
+    try {
+      this.AuthService.logout();
+      this._router.navigate(['login']);
+      this.darkModeService.disable();
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
