@@ -10,7 +10,7 @@ First run `npm i` for a dependencies,then Run `ng serve` for a dev server. Navig
 Project with Angular 15.0.4 and Bootstrap 5, login management through a Bearer token saved in local storage, used ToastrModule, NgxPaginationModule and angular-dark-mode to handle toast messages and pagination and dark mode
 
 ## Missing Requirements
-missing load more and infinite scroll and a more complete management of pagination, used a package that still allows the user an items view
+missing load more and infinite scroll and a more complete management of pagination, used a package that still allows the user an items view, There is a bug on the email checking API endpoint
 
 ## Code scaffolding
 
