@@ -9,13 +9,14 @@ import {
 } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   baseHeader: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json;',
   });
-  constructor(private _router: Router) {}
+  constructor(private _router: Router,private toastr: ToastrService) {}
 
   //header management, we set the bearer token to access the private area
   intercept(
@@ -33,8 +34,11 @@ export class AuthInterceptor implements HttpInterceptor {
       catchError((err: HttpErrorResponse) => {
         if (err instanceof HttpErrorResponse) {
           if (err.status === 401) {
-            alert('Error, try again');
+            this.toastr.error('error! try again');
             this._router.navigate(['/login']);
+          }
+          if(err.status === 400) {
+            this.toastr.error('format error');
           }
         }
         return throwError(err.message);

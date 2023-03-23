@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -16,12 +17,21 @@ export class RegisterComponent implements OnInit {
   constructor(
     private AuthService: AuthService,
     private formBuilder: FormBuilder,
+    private toastr: ToastrService,
     private _router: Router
   ) {
-    this.dataRoles = ['admin','customer'];
+    this.dataRoles = ['admin', 'customer'];
     this.avatarDefault = 'https://api.lorem.space/image/face?w=640&h=480&r=867';
+
     this.registerForm = formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email,
+          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+        ],
+      ],
       password: [
         '',
         [
@@ -31,8 +41,8 @@ export class RegisterComponent implements OnInit {
           ),
         ],
       ],
-      name: ['', [Validators.required]],
-      role: [null, [Validators.required]],
+      name: ['', [Validators.required,Validators.minLength(4)]],
+      role: ['', [Validators.required]],
       avatar: [
         'https://api.lorem.space/image/face?w=640&h=480&r=867',
         [Validators.required],
@@ -43,14 +53,13 @@ export class RegisterComponent implements OnInit {
 
   //if form isn't valid, output is an error, in html template has been added validity management
   onSubmit() {
-    if (!this.registerForm.valid) {
-      alert('error');
-    } else {
+    try {
       this.AuthService.register(this.registerForm.value).subscribe((result) => {
-        console.log(result);
-        alert('registration completed!');
+        this.toastr.success('Registration completed!');
         this._router.navigate(['/login']);
       });
+    } catch (error) {
+      console.log(error);
     }
   }
 }

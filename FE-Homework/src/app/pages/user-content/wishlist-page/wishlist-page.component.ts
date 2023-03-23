@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ContentService } from 'src/app/services/content.service';
 import { ResponseContent } from 'src/modules/content';
 
@@ -14,7 +15,8 @@ export class WishlistPageComponent implements OnInit {
 
   constructor(
     private _router: Router,
-    private contentService: ContentService
+    private contentService: ContentService,
+    private toastr: ToastrService
   ) {}
 
   async ngOnInit() {
@@ -31,6 +33,7 @@ export class WishlistPageComponent implements OnInit {
 
   clearFavorite() {
     this.contentService.clearFavorite();
+    this.toastr.success('Clear');
     this._router.navigate(['feed']);
   }
 }

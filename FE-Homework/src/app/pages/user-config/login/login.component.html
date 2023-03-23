@@ -7,15 +7,16 @@
     />
     <div class="card-body">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email</label>
+        <div class="form-floating mb-3">
           <input
             type="email"
             class="form-control"
             formControlName="email"
+            id="floatingInput"
+            placeholder="name@example.com"
             required
-            email
           />
+          <label for="floatingInput" class="form-label">Email</label>
           <span
             class="text-danger"
             *ngIf="
@@ -24,14 +25,16 @@
             >Error Pattern</span
           >
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
+        <div class="form-floating mb-3">
           <input
             type="password"
             class="form-control"
             formControlName="password"
+            placeholder="Password"
+            id="floatingPassword"
             required
           />
+          <label for="floatingPassword" class="form-label">Password</label>
           <span
             class="text-danger"
             *ngIf="
@@ -50,9 +53,9 @@
         </button>
       </form>
     </div>
-    <h3>
+    <h4>
       Don't have an account?
       <a routerLinkActive="active" routerLink="/register"> Click here</a>
-    </h3>
+    </h4>
   </div>
 </div>
