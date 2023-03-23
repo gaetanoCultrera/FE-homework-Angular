@@ -21,6 +21,7 @@ import { ContentFeedPageComponent } from './pages/user-content/content-feed-page
 import { ContentMePageComponent } from './pages/user-content/content-me-page/content-me-page.component';
 import { WishlistPageComponent } from './pages/user-content/wishlist-page/wishlist-page.component';
 import { CardsComponent } from './pages/user-content/cards/cards.component';
+import { LoaderComponentComponent } from './pages/user-content/loader-component/loader-component.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { CardsComponent } from './pages/user-content/cards/cards.component';
     ContentMePageComponent,
     WishlistPageComponent,
     CardsComponent,
+    LoaderComponentComponent,
   ],
   imports: [
     BrowserModule,

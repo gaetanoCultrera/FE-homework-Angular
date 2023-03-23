@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   //if form isn't valid, output is an error
-  onSubmit() {
+  async onSubmit() {
     try {
       this.AuthService.login(this.loginForm.value).subscribe((result) => {
         this.toastr.success('Connection Successful!');

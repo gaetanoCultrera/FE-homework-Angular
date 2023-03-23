@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
           ),
         ],
       ],
-      name: ['', [Validators.required,Validators.minLength(4)]],
+      name: ['', [Validators.required, Validators.minLength(4)]],
       role: ['', [Validators.required]],
       avatar: [
         'https://api.lorem.space/image/face?w=640&h=480&r=867',
@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   //if form isn't valid, output is an error, in html template has been added validity management
-  onSubmit() {
+  async onSubmit() {
     try {
       this.AuthService.register(this.registerForm.value).subscribe((result) => {
         this.toastr.success('Registration completed!');

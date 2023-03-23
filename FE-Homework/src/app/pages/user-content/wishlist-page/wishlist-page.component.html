@@ -3,6 +3,9 @@
   <div class="row">
     <h1 class="text-center" *ngIf="favoriteProducts.length === 0">
       Empty wishlist
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
     </h1>
     <div
       *ngFor="let item of favoriteProducts"

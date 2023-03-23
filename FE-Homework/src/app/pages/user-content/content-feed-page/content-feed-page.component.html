@@ -1,4 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container mt-2">
   <app-cards [dataProducts]="dataProduct"></app-cards>
+  <div *ngIf="dataProduct.length === 0">
+    <app-loader-component></app-loader-component>
+  </div>
 </div>
