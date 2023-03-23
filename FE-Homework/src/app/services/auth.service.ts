@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   //get data of profile user
-  profile(): Observable<{ name: string; role: string; avatar: string }> {
+  getProfileUser(): Observable<{ name: string; role: string; avatar: string }> {
     return this.httpClient.get<{ name: string; role: string; avatar: string }>(
       `${environment.host}/auth/profile`
     );

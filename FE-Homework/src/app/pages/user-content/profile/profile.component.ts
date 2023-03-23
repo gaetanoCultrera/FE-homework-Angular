@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { User } from 'src/modules/auth';
+import { DarkModeService } from 'angular-dark-mode';
 
 @Component({
   selector: 'app-profile',
@@ -11,21 +11,21 @@ import { User } from 'src/modules/auth';
 export class ProfileComponent implements OnInit {
   userProfile!: { name: string; role: string; avatar: string };
 
-  constructor(private AuthService: AuthService, private _router: Router) {}
+  constructor(private AuthService: AuthService, private _router: Router,private darkModeService: DarkModeService) {}
 
   ngOnInit(): void {
     this.getProfile();
   }
 
   getProfile() {
-    this.AuthService.profile().subscribe((result) => {
-      console.log(result);
-      this.userProfile = result;
+    this.AuthService.getProfileUser().subscribe((result) => {
+      this.userProfile = {...result};
     });
   }
 
   onLogout(): void {
     this.AuthService.logout();
     this._router.navigate(['login']);
+    this.darkModeService.disable();
   }
 }

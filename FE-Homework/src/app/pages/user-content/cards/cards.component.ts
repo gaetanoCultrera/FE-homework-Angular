@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 import { ContentService } from 'src/app/services/content.service';
 import { ResponseContent } from 'src/modules/content';
 
@@ -12,14 +11,20 @@ export class CardsComponent implements OnInit {
   @Input() dataProducts: ResponseContent[] = [];
   defaultPage: number = 1;
   itemsPerPage: number = 9;
-  FavoriteList: ResponseContent[] = [];
 
-  constructor(private contentService: ContentService, private toastr: ToastrService) {}
+  constructor(
+    private contentService: ContentService,
+  ) {}
 
   ngOnInit(): void {}
 
-  async addFavorite(product: ResponseContent) {
-    this.contentService.AddFavorite(product);
-    this.toastr.success('Product added successfully');
+  async addFavorite(id: string) {
+    try {
+      this.contentService.getProductsById(id).subscribe((item) => {
+        this.contentService.addFavorite(item);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 }

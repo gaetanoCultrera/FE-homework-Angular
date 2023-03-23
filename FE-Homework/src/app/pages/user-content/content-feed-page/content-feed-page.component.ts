@@ -11,12 +11,8 @@ export class ContentFeedPageComponent implements OnInit {
   dataProduct: ResponseContent[] = [];
 
   constructor(private contentService: ContentService) {}
-  isLoading:boolean=true
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 500);
     this.getAllProduct()
   }
 

@@ -27,13 +27,19 @@ export class WishlistPageComponent implements OnInit {
     return (this.favoriteProducts = this.contentService.getFavorite());
   }
 
-  // removeFavorite(id:string):void{
-  //   this.contentService.removeFavorite(id)
-  // }
+  removeFavorite(id: string): void {
+    try {
+      let index = this.favoriteProducts.findIndex((item) => item.id === id);
+      this.favoriteProducts.splice(index, 1);
+      this.toastr.success('Item successfully removed');
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   clearFavorite() {
-    this.contentService.clearFavorite();
-    this.toastr.success('Clear');
+    this.favoriteProducts = [];
+    this.toastr.success('Items successfully removed');
     this._router.navigate(['feed']);
   }
 }
