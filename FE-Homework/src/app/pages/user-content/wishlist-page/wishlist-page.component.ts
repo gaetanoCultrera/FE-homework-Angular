@@ -20,10 +20,10 @@ export class WishlistPageComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.setFavorite();
+    this.setFavoriteList();
   }
 
-  setFavorite(): ResponseContent[] {
+  setFavoriteList(): ResponseContent[] {
     return (this.favoriteProducts = this.contentService.getFavorite());
   }
 
@@ -37,9 +37,9 @@ export class WishlistPageComponent implements OnInit {
     }
   }
 
-  clearFavorite() {
-    this.favoriteProducts = [];
-    this.toastr.success('Items successfully removed');
-    this._router.navigate(['feed']);
-  }
+  // clearFavorite() {
+  //   this.favoriteProducts = [];
+  //   this.toastr.success('Items successfully removed');
+  //   this._router.navigate(['feed']);
+  // }
 }

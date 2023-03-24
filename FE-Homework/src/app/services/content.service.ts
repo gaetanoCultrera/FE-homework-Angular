@@ -35,7 +35,7 @@ export class ContentService {
       this.toastr.error('Element already present');
     } else {
       this.favoriteList.push(product);
-      this.toastr.success('Item inserted successfully');
+      this.toastr.success('Correctly inserted elements');
     }
   }
 
