@@ -42,8 +42,6 @@ export class AuthService {
   //logout
   logout(): void {
     try {
-      localStorage.removeItem('accessToken');
-      localStorage.removeItem('refreshToken');
       localStorage.clear();
     } catch (error) {
       console.log(error);
