@@ -49,7 +49,9 @@ export class RegisterComponent implements OnInit {
       ],
     });
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    localStorage.clear();
+  }
 
   //if form isn't valid, output is an error, in html template has been added validity management
   async onSubmit() {

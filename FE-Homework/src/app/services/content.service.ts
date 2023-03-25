@@ -29,13 +29,27 @@ export class ContentService {
   }
 
   addFavorite(product: ResponseContent): void {
-    const index = this.favoriteList.findIndex(({ id }) => id === product.id);
-    //The element will be added if the index is equal to -1.
-    if (index !== -1) {
-      this.toastr.error('Element already present');
-    } else {
-      this.favoriteList.push(product);
-      this.toastr.success('Correctly inserted elements');
+    try {
+      const index = this.favoriteList.findIndex(({ id }) => id === product.id);
+      //The element will be added if the index is equal to -1.
+      if (index !== -1) {
+        this.toastr.error('Element already present');
+      } else {
+        this.favoriteList.push(product);
+        this.toastr.success('Correctly inserted elements');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  removeFavorite(id: string): void {
+    try {
+      let index = this.favoriteList.findIndex((item) => item.id === id);
+      this.favoriteList.splice(index, 1);
+      this.toastr.success('Item successfully removed');
+    } catch (error) {
+      console.log(error);
     }
   }
 

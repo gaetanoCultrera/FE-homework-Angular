@@ -38,7 +38,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    localStorage.clear();
+  }
 
   //if form isn't valid, output is an error
   async onSubmit() {
