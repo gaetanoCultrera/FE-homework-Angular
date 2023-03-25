@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
       this._router.navigate(['login']);
       this.darkModeService.disable();
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 }

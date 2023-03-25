@@ -8,7 +8,6 @@ import { ResponseContent } from 'src/modules/content';
   styleUrls: ['./wishlist-page.component.scss'],
 })
 export class WishlistPageComponent implements OnInit {
-  id: string | null = '';
   favoriteProducts: ResponseContent[] = [];
 
   constructor(
